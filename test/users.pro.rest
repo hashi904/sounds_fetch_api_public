@@ -1,0 +1,198 @@
+### development
+GET http://localhost:4170/api/v1/users/
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7InVzZXJfaWQiOjN9LCJleHAiOjE2MTk1MzcwNzF9.4a-RroBk4HzlWwb9E1BXTuidEMCm6NPRMNymExwhPCw
+### production
+GET https://guarded-eyrie-37305.herokuapp.com/api/v1/users/
+
+# development
+### sign_in
+POST https://guarded-eyrie-37305.herokuapp.com/api/v1/sign_in/
+Content-Type: application/json
+
+{
+  "email": "test33@gmail.com",
+  "password": "testtest"
+}
+
+### delete
+DELETE https://guarded-eyrie-37305.herokuapp.com/api/v1/registration/
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7InVzZXJfaWQiOjg0fSwiZXhwIjoxNjI4NDE5MDc1fQ._w9mx08ZqJRpdk-EORtWFJoJAVRQPdWHyyVaYgcFgeI
+
+
+###
+GET https://guarded-eyrie-37305.herokuapp.com/api/v1/users/
+
+### sign_up
+POST https://guarded-eyrie-37305.herokuapp.com/api/v1/registration/
+Content-Type: application/json
+
+{
+	"registration": {
+		"user": {
+			"nickname": "test34",
+			"email": "test34@gmail.com",
+			"password": "testtest",
+			"sex": 1,
+			"birth_year": 2000,
+			"birth_month": 12,
+			"birth_day": 4,
+			"introduction": "こんにちは。音楽仲間を募集しています。",
+			"syukou": "趣向",
+			"commitment": 5,
+			"tweet": "1111111111",
+			"prefecture_id": 1,
+			"user_profile_images_attributes": [
+				{
+					"image": "test2.img",
+					"position": 1
+				}
+			],
+			"user_active_dates_attributes": [
+				{
+					"date": 0
+				},
+				{
+					"date": 1
+				}
+			],
+			"user_sns_services_attributes": [
+				{
+					"url": "https://instagram.com/p/hogehoge",
+					"sns_type": 4
+				}
+			]
+		},
+		"music_categories": [
+			{
+				"category_id": 1,
+				"position": 1
+			},
+			{
+				"category_id": 2,
+				"position": 2
+			}
+		],
+		"affected_musicians": [
+			{
+				"musician_id": 1,
+				"position": 1
+			}
+		],
+		"instruments": [
+			{
+				"instrument_type_id": 1,
+				"experience": 3,
+				"skill_level": 5,
+				"position": 1,
+				"special_skills": [
+					{"special_skill_id": 1},
+					{"special_skill_id": 2},
+					{"special_skill_id": 3}
+				],
+				"equipments": [
+					{"equipment_id": 1}
+				],
+				"live_experiences": [
+					{"live_experience_id": 1}
+				]
+			}
+		]
+	}
+}
+
+### update
+PUT https://guarded-eyrie-37305.herokuapp.com/api/v1/registration/38
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7InVzZXJfaWQiOjM5fSwiZXhwIjoxNjI4NDExNDkxfQ.88LgsJIXcu-j1gNDM4NRsI_DaC9xu8wGELr7QzStRpc
+Content-Type: application/json
+
+{
+	"registration": {
+		"user": {
+			"introduction": "テスト",
+			"syukou": "アップデート2",
+			"commitment": 1,
+			"prefecture_id": 46,
+			"tweet": "アップデート",
+			"user_profile_images_attributes": [
+				{
+					"id": 32,
+					"image": "update.img",
+					"position": 1
+				}
+			]
+		},
+		"music_categories": [
+			{
+				"id": 71,
+				"category_id": 3,
+				"position": 1
+			}
+		],
+		"affected_musicians": [
+			{
+				"id": 1,
+				"musician_id": 1,
+				"position": 1
+			}
+		],
+		"instruments": [
+			{
+				"special_skills": [				
+					{"id": 23, "special_skill_id": 1}
+				]
+			}
+		]
+	}
+}
+
+### sign_in_production
+POST https://sounds-fetch-server-hssfk4okfa-an.a.run.app//api/v1/sign_in/
+Content-Type: application/json
+
+{
+  "email": "test3@gmail.com",
+  "password": "hogehoge"
+}
+
+### update_user
+GET https://guarded-eyrie-37305.herokuapp.com/api/v1/user_update/
+
+### change_mail get
+GET https://guarded-eyrie-37305.herokuapp.com/api/v1/change_mail/
+
+### change_mail post
+POST https://guarded-eyrie-37305.herokuapp.com/api/v1/change_mail/
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7InVzZXJfaWQiOjg4fSwiZXhwIjoxNjI5MzI5MjAxfQ.njKsvQ4zwECLW_ezIO-7kcRriyHl342IPOnmr561qAI
+Content-Type: application/json
+
+{
+	"change_mail": {
+		"email": "test33@gmail.com",
+		"change_email": "moarujp@gmail.com",
+		"password": "testtest"
+	}
+}
+
+### change_mail confirmation
+GET https://guarded-eyrie-37305.herokuapp.com/api/v1/change_mail/confirmation/?token=CxIzLzO66Xl%2FKGLF5pKBhu%2B8rqWBpVWUDclTGhvAups0IzpdvehmrZ2iuAoq%0AG9g1%0A
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7InVzZXJfaWQiOjg4fSwiZXhwIjoxNjI5MzMwOTIzfQ.sWcjrPj9XEgS83m31ns8kXcwpIHAIRvIKayqORZDRXs
+
+
+### change_password
+PUT https://guarded-eyrie-37305.herokuapp.com/api/v1/change_password/confirmation/
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7InVzZXJfaWQiOjg4fSwiZXhwIjoxNjI5MzgzOTE5fQ.EKG3wkoZ7Z5lQ7Vnt-JsvrZp8hgZZi9Kf4wgBbPsmQs
+Content-Type: application/json
+
+{
+	"change_password": {
+		"email": "moarujp@gmail.com",
+		"password": "testtest",
+		"change_password": "test111"
+	}
+}
+
+### get dash
+GET https://guarded-eyrie-37305.herokuapp.com/api/v1/dash/?text=hoge
+
+### search
+GET https://guarded-eyrie-37305.herokuapp.com/api/v1/search/?instrument_type=1&page=1

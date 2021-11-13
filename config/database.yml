@@ -1,0 +1,43 @@
+default: &default
+  adapter: postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  encoding: unicode
+  port: 5432
+
+development:
+  # <<: *default
+  # username: itnnyobtdhpwfa
+  # password: 4a9d0f81b30ba64fe270e1a1c0ee7e49c177685ea465b2215567e26927f6921b
+  # host: ec2-54-167-152-185.compute-1.amazonaws.com
+  # database: d395vb6nt7vuoe
+
+  # local env
+  <<: *default
+  username: sounds_fetch_master
+  password:
+  host: 127.0.0.1
+  database: sounds_fetch_db_dev
+
+  #docker env
+  # <<: *default
+  # username: root
+  # password: root
+  # host: dev-db # docker container name
+  # database: sounds_fetch_db_dev
+
+test:
+  # docker
+  # <<: *default
+  # username: root
+  # password: root
+  # host: test-db-v3 # docker container name
+  # database: sounds_fetch_db_test-v3
+
+  # local
+  <<: *default
+  username: sounds_fetch_master
+  password:
+  host: 127.0.0.1
+  database: sounds_fetch_db_test_v3
+

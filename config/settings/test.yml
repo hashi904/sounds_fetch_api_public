@@ -1,0 +1,6 @@
+cors:
+  host: 'http://localhost:3220'
+host: 'http://localhost:3220'
+aws:
+  s3:
+    backet_name: 'hashi_test'

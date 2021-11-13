@@ -1,0 +1,13 @@
+steps:
+# Build the container image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/hallowed-nectar-315812/sounds_fetch_app', '.']
+# Push the container image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/hallowed-nectar-315812/sounds_fetch_app']
+# Deploy container image to Cloud Run
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args: ['run', 'deploy', 'sounds-fetch-server', '--image', 'gcr.io/hallowed-nectar-315812/sounds_fetch_app', '--region', 'REGION', '--platform', 'managed']
+images:
+- gcr.io/hallowed-nectar-315812/sounds_fetch_app

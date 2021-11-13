@@ -1,0 +1,41 @@
+version: '3'
+services:
+  dev-db:
+    image: postgres:13.3
+    ports:
+      - "5433:5432"
+    volumes:
+      - database:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: sounds_fetch_db_dev
+    restart: always
+  test-db-v3:
+    image: postgres:13.3
+    ports:
+      - "5435:5432"
+    volumes:
+      - database:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: sounds_fetch_db_test-v3
+    restart: always
+  app: #service name
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 8080 -b '0.0.0.0'"
+    container_name: 'app'
+    # attach container to use binding.pry
+    tty: true
+    stdin_open: true
+
+    ports:
+      - "8080:8080" # ホストからゲストへポートフォワード
+    volumes:
+      - .:/app # ソースコード変更したらDocker側も即反映されるように
+volumes:
+  database:
+    driver: local

@@ -1,0 +1,161 @@
+### sign_in
+POST http://localhost:8080/api/v1/sign_in/
+Content-Type: application/json
+
+{
+  "email": "hogetaou@gmail.com",
+  "password": "hogehoge"
+}
+
+### sign_up
+POST http://localhost:8080/api/v1/registration/
+Content-Type: application/json
+
+{
+	"registration": {
+		"user": {
+			"nickname": "test101",
+			"email": "test101@gmail.com",
+			"password": "testtest",
+			"sex": 1,
+			"birth_year": 2000,
+			"birth_month": 12,
+			"birth_day": 4,
+			"introduction": "こんにちは。音楽仲間を募集しています。",
+			"tweet": "1111111111",
+			"prefecture_id": 1,
+			"user_profile_images_attributes": [
+				{
+					"image": "test2.img",
+					"position": 1
+				}
+			],
+			"user_active_dates_attributes": [
+				{
+					"date": 0
+				},
+				{
+					"date": 1
+				}
+			]
+		},
+		"music_categories": [
+			{
+				"category_id": 1,
+				"position": 1
+			},
+			{
+				"category_id": 2,
+				"position": 2
+			}
+		],
+		"instruments": [
+			{
+				"instrument_type_id": 1,
+				"experience": 3,
+				"skill_level": 5,
+				"position": 1,
+				"live_experiences": [
+					{"live_experience_id": 1}
+				]
+			}
+		]
+	}
+}
+
+### edit
+GET  http://localhost:8080/api/v1/registration/116/edit
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7InVzZXJfaWQiOjExNn0sImV4cCI6MTYzNjQ2NjMzNH0.Q1GQuqDOQvT1rkL8HoSIRAEe-kKpTUiWnx2w6QOatNc
+
+### update
+PUT http://localhost:8080/api/v1/registration/117
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7InVzZXJfaWQiOjExN30sImV4cCI6MTYzNDU1ODQ4Nn0.EZQspCDy9CtcCnxFXKzU7-PN0LzEob_1-L7dUYqf-Ro
+Content-Type: application/json
+
+{
+	"registration": {
+		"user": {
+			"introduction": "アップデートアップデート",
+			"prefecture_id": 1,
+			"tweet": "アップデートしました。",
+			"user_profile_images_attributes": [
+				{
+					"id": 89,
+					"image": "update.img",
+					"position": 1
+				}
+			],
+			"user_active_dates_attributes": [
+				{
+					"id": 189,
+					"date": 1
+				}
+			]
+		},
+		"music_categories": [
+			{
+				"id": 203,
+				"category_id": 1,
+				"position": 1
+			}
+		],
+		"instruments": [
+			{
+				"id": 107,
+				"instrument_type_id": 3,
+				"experience": 1,
+				"skill_level": 2,
+				"position": 1,
+				"live_experiences": [
+					{
+						"id": 45,
+						"live_experience_id": 2
+						}
+				]
+			}
+		]
+	}
+}
+
+### search
+GET http://localhost:8080/api/v1/search/?instrument_type=1&page=1
+
+### show
+GET http://localhost:8080/api/v1/users/92
+
+### delete
+DELETE http://localhost:8080/api/v1/registration/
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7InVzZXJfaWQiOjg0fSwiZXhwIjoxNjI4NDE5MDc1fQ._w9mx08ZqJRpdk-EORtWFJoJAVRQPdWHyyVaYgcFgeI
+
+### change_mail get
+GET http://localhost:8080/api/v1/change_mail/
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7InVzZXJfaWQiOjg4fSwiZXhwIjoxNjI5MzI5MjAxfQ.njKsvQ4zwECLW_ezIO-7kcRriyHl342IPOnmr561qAI
+
+### change_mail post
+POST http://localhost:8080/api/v1/change_mail/
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7InVzZXJfaWQiOjg4fSwiZXhwIjoxNjI5MzI5MjAxfQ.njKsvQ4zwECLW_ezIO-7kcRriyHl342IPOnmr561qAI
+Content-Type: application/json
+
+{
+	"change_mail": {
+		"email": "test33@gmail.com",
+		"change_email": "moarujp@gmail.com",
+		"password": "testtest"
+	}
+}
+
+### change_mail confirmation
+GET http://localhost:8080/api/v1/change_mail/confirmation/?token=CxIzLzO66Xl%2FKGLF5pKBhu%2B8rqWBpVWUDclTGhvAups0IzpdvehmrZ2iuAoq%0AG9g1%0A
+
+### change_password
+PUT http://localhost:8080/api/v1/change_password/confirmation/
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7InVzZXJfaWQiOjg4fSwiZXhwIjoxNjI5MzgzOTE5fQ.EKG3wkoZ7Z5lQ7Vnt-JsvrZp8hgZZi9Kf4wgBbPsmQs
+Content-Type: application/json
+
+{
+	"change_password": {
+		"email": "moarujp@gmail.com",
+		"password": "testtest",
+		"change_password": "test111"
+	}
+}

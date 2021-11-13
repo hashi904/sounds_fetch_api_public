@@ -1,0 +1,206 @@
+### image test
+POST http://localhost:8080/api/v1/image_test
+Content-Type: application/json
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+
+{
+	"registration": {
+		"image": "hoge.png"
+	}
+}
+
+
+### development
+GET http://localhost:8080/api/v1/users/?page=6
+# Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7InVzZXJfaWQiOjN9LCJleHAiOjE2MTk1MzcwNzF9.4a-RroBk4HzlWwb9E1BXTuidEMCm6NPRMNymExwhPCw
+### production
+GET https://guarded-eyrie-37305.herokuapp.com/api/v1/users/
+
+# development
+### sign_in
+POST http://localhost:8080/api/v1/sign_in/
+Content-Type: application/json
+
+{
+  "email": "hogetaou@gmail.com",
+  "password": "hogehoge"
+}
+
+### 
+POST  http://localhost:8080/api/v1/authenticate_mail/
+Content-Type: application/json
+
+{
+	"registration": {
+		"email": "moarujp@gmail.com"
+	}
+}
+
+
+### delete
+DELETE http://localhost:8080/api/v1/registration/
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7InVzZXJfaWQiOjg0fSwiZXhwIjoxNjI4NDE5MDc1fQ._w9mx08ZqJRpdk-EORtWFJoJAVRQPdWHyyVaYgcFgeI
+
+
+### show
+GET http://localhost:8080/api/v1/users/92
+
+### sign_up
+POST http://localhost:8080/api/v1/registration/
+Content-Type: application/json
+
+{
+	"registration": {
+		"user": {
+			"nickname": "test101",
+			"email": "test101@gmail.com",
+			"password": "testtest",
+			"sex": 1,
+			"birth_year": 2000,
+			"birth_month": 12,
+			"birth_day": 4,
+			"introduction": "こんにちは。音楽仲間を募集しています。",
+			"tweet": "1111111111",
+			"prefecture_id": 1,
+			"user_profile_images_attributes": [
+				{
+					"image": "test2.img",
+					"position": 1
+				}
+			],
+			"user_active_dates_attributes": [
+				{
+					"date": 0
+				},
+				{
+					"date": 1
+				}
+			]
+		},
+		"music_categories": [
+			{
+				"category_id": 1,
+				"position": 1
+			},
+			{
+				"category_id": 2,
+				"position": 2
+			}
+		],
+		"instruments": [
+			{
+				"instrument_type_id": 1,
+				"experience": 3,
+				"skill_level": 5,
+				"position": 1,
+				"live_experiences": [
+					{"live_experience_id": 1}
+				]
+			}
+		]
+	}
+}
+
+### edit
+GET  http://localhost:8080/api/v1/registration/116/edit
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7InVzZXJfaWQiOjExNn0sImV4cCI6MTYzNjQ2NjAyNX0.Ca334yJh2cMqkVxXN2xeFWLhpJtiWj655ycx9A2OjdA
+
+### update
+PUT http://localhost:8080/api/v1/registration/117
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7InVzZXJfaWQiOjExNn0sImV4cCI6MTYzNjQ2NjAyNX0.Ca334yJh2cMqkVxXN2xeFWLhpJtiWj655ycx9A2OjdA
+Content-Type: application/json
+
+{
+	"registration": {
+		"user": {
+			"introduction": "アップデートアップデート",
+			"prefecture_id": 1,
+			"tweet": "アップデートしました。",
+			"user_profile_images_attributes": [
+				{
+					"id": 89,
+					"image": "update.img",
+					"position": 1
+				}
+			],
+			"user_active_dates_attributes": [
+				{
+					"id": 189,
+					"date": 1
+				}
+			]
+		},
+		"music_categories": [
+			{
+				"id": 203,
+				"category_id": 1,
+				"position": 1
+			}
+		],
+		"instruments": [
+			{
+				"id": 107,
+				"instrument_type_id": 3,
+				"experience": 1,
+				"skill_level": 2,
+				"position": 1,
+				"live_experiences": [
+					{
+						"id": 45,
+						"live_experience_id": 2
+						}
+				]
+			}
+		]
+	}
+}
+
+### 
+GET http://localhost:8080/api/v1/mail?token=3e6Oz%2FKHdCGmMV99S63iQgYug68qm6AkK%2FxIoN2NDgnhCv1Orp0xEMqrl%2BUC%0AtmP2%0A
+
+###
+GET http://localhost:8080/api/v1/registration?token=vPyYajxzg7KE0cuyB0kNYHLRvfwGsBTNyf9cAEWNRNwRQNIvxH3c%2Fi33BX1u%0AoJbe%0A
+
+### update_user
+GET http://localhost:8080/api/v1/user_update/
+
+### change_mail get
+GET http://localhost:8080/api/v1/change_mail/
+
+### change_mail post
+POST http://localhost:8080/api/v1/change_mail/
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7InVzZXJfaWQiOjg4fSwiZXhwIjoxNjI5MzI5MjAxfQ.njKsvQ4zwECLW_ezIO-7kcRriyHl342IPOnmr561qAI
+Content-Type: application/json
+
+{
+	"change_mail": {
+		"email": "test33@gmail.com",
+		"change_email": "moarujp@gmail.com",
+		"password": "testtest"
+	}
+}
+
+### change_mail confirmation
+GET http://localhost:8080/api/v1/change_mail/confirmation/?token=CxIzLzO66Xl%2FKGLF5pKBhu%2B8rqWBpVWUDclTGhvAups0IzpdvehmrZ2iuAoq%0AG9g1%0A
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7InVzZXJfaWQiOjg4fSwiZXhwIjoxNjI5MzMwOTIzfQ.sWcjrPj9XEgS83m31ns8kXcwpIHAIRvIKayqORZDRXs
+
+
+### change_password
+PUT http://localhost:8080/api/v1/change_password/confirmation/
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7InVzZXJfaWQiOjg4fSwiZXhwIjoxNjI5MzgzOTE5fQ.EKG3wkoZ7Z5lQ7Vnt-JsvrZp8hgZZi9Kf4wgBbPsmQs
+Content-Type: application/json
+
+{
+	"change_password": {
+		"email": "moarujp@gmail.com",
+		"password": "testtest",
+		"change_password": "test111"
+	}
+}
+
+### get dash
+GET http://localhost:8080/api/v1/dash/?text=hoge
+
+### search
+GET http://localhost:8080/api/v1/search/?instrument_type=1&page=1

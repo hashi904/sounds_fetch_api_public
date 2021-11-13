@@ -1,0 +1,7 @@
+key_base: f16be8720691c9f56b70c802dbc99f98733024704c3698511794f2c250aeee873e0347a98adcbdd427f79c5b7162a062927e5d3d08c936c283ef0266a51efb54
+cors:
+  host: 'http://localhost:3220'
+host: 'http://localhost:3220'
+aws:
+  s3:
+    backet_name: 'hashi'
