@@ -8,6 +8,7 @@
 
 - [README](#readme)
   - [Overview](#overview)
+  - [Overview](#table)
   - [Service URL](#service-url)
   - [Dockerを用いた環境構築](#dockerを用いた環境構築)
     - [docker for macをinstallする](#docker-for-macをinstallする)
@@ -43,6 +44,9 @@
 | ruby | 2.7.2 |
 | Rails | 6.1.3 |
 | PostgreSQL | 13.2 |
+
+## table
+https://user-images.githubusercontent.com/41276533/141614281-77d6d806-168c-4698-aa80-5d6a8ea84ac6.png
 
 ## Service URL
 https://sounds-fetch-flont-hssfk4okfa-an.a.run.app/  
